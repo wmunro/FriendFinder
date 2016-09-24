@@ -180,16 +180,16 @@
   <script type="text/javascript">
   	// Chosen Chosen has a number of options and attributes that allow you to have full control of your select boxes.
   	// https://harvesthq.github.io/chosen/options.html
-    var config = {
-      '.chosen-select'           : {},
-      '.chosen-select-deselect'  : {allow_single_deselect:true},
-      '.chosen-select-no-single' : {disable_search_threshold:10},
-      '.chosen-select-no-results': {no_results_text:'Oops, nothing found!'},
-      '.chosen-select-width'     : {width:"95%"}
-    }
-    for (var selector in config) {
-      $(selector).chosen(config[selector]);
-    }
+    // var config = {
+    //   '.chosen-select'           : {},
+    //   '.chosen-select-deselect'  : {allow_single_deselect:true},
+    //   '.chosen-select-no-single' : {disable_search_threshold:10},
+    //   '.chosen-select-no-results': {no_results_text:'Oops, nothing found!'},
+    //   '.chosen-select-width'     : {width:"95%"}
+    // }
+    // for (var selector in config) {
+    //   $(selector).chosen(config[selector]);
+    // }
     // Capture the form inputs 
     $("#submit").on("click", function(){
     	// Form validation
@@ -203,6 +203,7 @@
 		  	if( $(this).val() === "")
 		  		isValid = false
 		  })
+		  console.log('1');
 		  return isValid;
 		}
 		// If all required fields are filled
@@ -221,7 +222,8 @@
 	    		// Grab the result from the AJAX post so that the best match's name and photo are displayed.
 	    		$("#matchName").text(data.name);
 	    		$('#matchImg').attr("src", data.photo);
-		    	// Show the modal with the best match 
+		    	// Show the modal with the best match
+		    	console.log('2'); 
 		    	$("#resultsModal").modal('toggle');
 	    	});
 		}
